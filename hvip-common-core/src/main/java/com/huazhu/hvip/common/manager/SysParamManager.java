@@ -1,0 +1,26 @@
+/*
+ * Copyright (C),2016-2016. 华住酒店管理有限公司
+ * FileName: SysParamManager.java
+ * Author:   admin
+ * Date:     2016-03-08 15:31:50
+ * Description: //模块目的、功能描述
+ * History: //修改记录 修改人姓名 修改时间 版本号 描述 需求来源
+ * <admin><2016-03-08 15:31:50><version><desc><source>
+ *
+ */
+
+package com.huazhu.hvip.common.manager;
+
+import com.huazhu.hvip.common.model.SysParam;
+import com.huazhu.hvip.base.service.GenericManager;
+
+public interface SysParamManager extends GenericManager<SysParam, Long> {
+
+	   /**
+	    * 根据参数名获得参数值
+	    * @param paramName
+	    * @return
+	    */
+	   public SysParam getParamByName(String paramName);
+
+}

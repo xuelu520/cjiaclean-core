@@ -1,0 +1,58 @@
+/*
+ * Copyright (C),2016-2016. 华住酒店管理有限公司
+ * FileName: MenuManagerImpl.java
+ * Author:   lijing
+ * Date:     2016-04-18 16:16:59
+ * Description: //模块目的、功能描述
+ * History: //修改记录 修改人姓名 修改时间 版本号 描述
+ * <lijing>  <2016-04-18 16:16:59> <version>   <desc>
+ *
+ */
+
+package com.huazhu.hvip.common.manager.impl;
+
+import com.huazhu.hvip.base.model.ParamObject;
+import com.huazhu.hvip.base.model.QueryModel;
+import com.huazhu.hvip.base.service.impl.GenericManagerImpl;
+import com.huazhu.hvip.common.dao.MenuDao;
+import com.huazhu.hvip.common.manager.MenuManager;
+import com.huazhu.hvip.common.model.Menu;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/**
+ * <一句话功能简述>
+ * <功能详细描述>
+ *
+ * @author lijing
+ * @see [相关类/方法]（可选）
+ * @since [产品/模块版本] （可选）
+ */
+@Service("menuManager")
+public class MenuManagerImpl extends GenericManagerImpl<Menu,Long> implements MenuManager{
+
+    MenuDao menuDao;
+
+    @Autowired
+    public MenuManagerImpl(MenuDao menuDao){
+        super(menuDao);
+        this.menuDao = menuDao;
+    }
+
+    /**
+     * 查询菜单
+     * @param para
+     * @return
+     */
+    @Override
+    public List<Menu> searchMenuList(ParamObject para) {
+        QueryModel queryModel = new QueryModel();
+        Long parentId = para.getLongParam("parentId");
+        if(parentId!=null){
+            queryModel.addColumnValueCondition("parentId",parentId);
+        }
+        return menuDao.search(queryModel);
+    }
+}

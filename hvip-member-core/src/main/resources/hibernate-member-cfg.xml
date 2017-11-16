@@ -1,0 +1,35 @@
+<!--
+  ~ Copyright (C),2016-2016. 华住酒店管理有限公司
+  ~ FileName: hibernate.cfg.xml
+  ~ Author:   admin
+  ~ Date:     2016-03-10 14:45:58
+  ~ Description: //模块目的、功能描述
+  ~ History: //修改记录 修改人姓名 修改时间 版本号 描述 需求来源
+  ~ <admin><2016-03-10 14:45:58><version><desc><source>
+  -->
+
+<!-- NOTE: If you're working offline, you might have to change the DOCTYPE to the following:
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">-->
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <mapping class="com.huazhu.hvip.member.model.Member"/>
+        <mapping class="com.huazhu.hvip.member.model.MemberAddress"/>
+        <mapping class="com.huazhu.hvip.member.model.MemberLevel"/>
+        <mapping class="com.huazhu.hvip.member.model.SourceDefine"/>
+        <mapping class="com.huazhu.hvip.member.model.WebRole"/>
+        <mapping class="com.huazhu.hvip.member.model.WebUser"/>
+        <mapping class="com.huazhu.hvip.member.model.WebUserRole"/>
+        <mapping class="com.huazhu.hvip.member.model.WebUserSource"/>
+        <mapping class="com.huazhu.hvip.member.model.Feedback"/>
+
+
+        <!-- No Table  -->
+    </session-factory>
+</hibernate-configuration>

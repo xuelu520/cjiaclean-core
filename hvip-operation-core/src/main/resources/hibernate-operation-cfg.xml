@@ -1,0 +1,35 @@
+<!--
+  ~ Copyright (C),2016-2016. 华住酒店管理有限公司
+  ~ FileName: hibernate-operation-cfg.xml
+  ~ Author:   chenli
+  ~ Date:     2016-03-23 16:40:45
+  ~ Description: //模块目的、功能描述
+  ~ History: //修改记录 修改人姓名 修改时间 版本号 描述
+  ~ <chenli>  <2016-03-23 16:40:45> <version>   <desc>
+  ~
+  -->
+
+<!-- NOTE: If you're working offline, you might have to change the DOCTYPE to the following:
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">-->
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/cjiaclean_product</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <mapping class="com.huazhu.hvip.operation.model.Hotel"/>
+        <mapping class="com.huazhu.hvip.operation.model.HotelCate"/>
+        <mapping class="com.huazhu.hvip.operation.model.HotelGoods"/>
+        <mapping class="com.huazhu.hvip.operation.model.HotelControlPrice"/>
+        <mapping class="com.huazhu.hvip.operation.model.HotelControlPriceItem"/>
+        <mapping class="com.huazhu.hvip.operation.model.HotelTaxRates"/>
+
+
+
+        <!-- No Table  -->
+
+    </session-factory>
+</hibernate-configuration>

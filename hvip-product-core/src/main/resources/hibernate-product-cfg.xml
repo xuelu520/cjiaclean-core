@@ -1,0 +1,62 @@
+<!--
+  ~ Copyright (C),2016-2016. 华住酒店管理有限公司
+  ~ FileName: hibernate.cfg.xml
+  ~ Author:   admin
+  ~ Date:     2016-03-10 14:45:58
+  ~ Description: //模块目的、功能描述
+  ~ History: //修改记录 修改人姓名 修改时间 版本号 描述 需求来源
+  ~ <admin><2016-03-10 14:45:58><version><desc><source>
+  -->
+
+<!-- NOTE: If you're working offline, you might have to change the DOCTYPE to the following:
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">-->
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/cjiaclean_product</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <mapping class="com.huazhu.hvip.product.goods.model.Brand"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.Category"/>
+        <mapping class="com.huazhu.hvip.product.channel.model.Channel"/>
+        <mapping class="com.huazhu.hvip.product.channel.model.ChannelObject"/>
+        <mapping class="com.huazhu.hvip.product.channel.model.ChannelPayRules"/>
+        <mapping class="com.huazhu.hvip.product.channel.model.ChannelGoodsPrice"/>
+        <mapping class="com.huazhu.hvip.product.channel.model.ChannelRate"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.Goods"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.GoodsField"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.GoodsGallery"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.GoodsSpec"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.GoodsType"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.Product"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.SpecValues"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.Tags"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.Tags"/>
+        <mapping class="com.huazhu.hvip.product.channel.model.ChannelGoodsPrice"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.Depot"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.DepotAdminUser"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.GoodsDepot"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.GoodsStore"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.GoodsTypeBrand"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.GoodsTypeSpec"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.Spec"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.StoreRecord"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.TagGoods"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.CateOrderRule"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.CateCancelRule"/>
+
+        <mapping class="com.huazhu.hvip.product.goods.model.extend.GoodsExt" />
+        <mapping class="com.huazhu.hvip.product.channel.model.extend.ChannelRateExt" />
+        <mapping class="com.huazhu.hvip.product.channel.model.extend.ChannelGoodsPriceExt" />
+        <mapping class="com.huazhu.hvip.product.goods.model.extend.TagGoodsExt" />
+        <mapping class="com.huazhu.hvip.product.goods.model.extend.TagsExt" />
+        <mapping class="com.huazhu.hvip.product.goods.model.extend.CategoryExt" />
+        <mapping class="com.huazhu.hvip.product.goods.model.Frequency"/>
+        <mapping class="com.huazhu.hvip.product.goods.model.GoodsComment"/>
+
+        <!-- No Table  -->
+    </session-factory>
+</hibernate-configuration>

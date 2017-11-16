@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C),2016-2016. 华住酒店管理有限公司
+  ~ FileName: dubbo-operation-provider.xml
+  ~ Author:   chenli
+  ~ Date:     2016-03-23 17:58:11
+  ~ Description: //模块目的、功能描述
+  ~ History: //修改记录 修改人姓名 修改时间 版本号 描述
+  ~ <chenli>  <2016-03-23 17:58:11> <version>   <desc>
+  ~
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="provider-operation"  id="provider-operation"  />
+
+    <!-- 使用multicast广播注册中心暴露服务地址
+    <dubbo:registry address="multicast://224.5.6.7:1234" />-->
+
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry id="cjiareg" address="${zookeeper.host}"/>
+
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" queues="0" payload="167772160" threads="100" threadpool="fixed" buffer="8192" port="${dubbo.protocol.host.operation}" />
+
+    <!-- 监控中心协议，如果为protocol="registry"，表示从注册中心发现监控中心地址，否则直连监控中心。 -->
+
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.huazhu.hvip.operation.service.HotelService" ref="hotelService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.operation.service.HotelCateService" ref="hotelCateService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.operation.service.HotelGoodsService" ref="hotelGoodsService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.operation.service.HotelOperateService" ref="hotelOperateService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.operation.service.HotelTaxRatesService" ref="hotelTaxRatesService" version="${dubbo.service.version}" timeout="1500000"  />
+
+    <!-- 具体的实现bean -->
+    <bean id="hotelService" class="com.huazhu.hvip.operation.service.impl.HotelServiceImpl" />
+    <bean id="hotelCateService" class="com.huazhu.hvip.operation.service.impl.HotelCateServiceImpl" />
+    <bean id="hotelGoodsService" class="com.huazhu.hvip.operation.service.impl.HotelGoodsServiceImpl" />
+    <bean id="hotelOperateService" class="com.huazhu.hvip.operation.service.impl.HotelOperateServiceImpl"/>
+    <bean id="hotelTaxRatesService" class="com.huazhu.hvip.operation.service.impl.HotelTaxRatesServiceImpl"/>
+
+
+    <!-- 调用其他 -->
+
+    <dubbo:reference id="goodsService" check="false" version="${dubbo.service.version}" interface="com.huazhu.hvip.product.service.GoodsService"  />
+
+</beans>

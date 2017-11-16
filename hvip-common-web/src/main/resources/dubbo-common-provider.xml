@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C),2016-2016. 华住酒店管理有限公司
+  ~ FileName: dubbo-common-provider.xml
+  ~ Author:   admin
+  ~ Date:     2016-03-20 16:55:53
+  ~ Description: //模块目的、功能描述
+  ~ History: //修改记录 修改人姓名 修改时间 版本号 描述
+  ~ <admin><2016-03-20 16:55:53><version><desc>
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="provider-common"  id="provider-common"  />
+
+    <!-- 使用multicast广播注册中心暴露服务地址
+    <dubbo:registry address="multicast://224.5.6.7:1234" />-->
+
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry id="cjiareg" address="${zookeeper.host}" />
+
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" queues="0" payload="167772160" threads="100" threadpool="fixed" buffer="8192" port="${dubbo.protocol.host.common}" />
+
+    <!-- 监控中心协议，如果为protocol="registry"，表示从注册中心发现监控中心地址，否则直连监控中心。 -->
+
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.huazhu.hvip.common.service.SerialNumService" ref="serialNumService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.common.service.PictureService" ref="pictureService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.common.service.SmsSendService" ref="smsSendService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.common.service.SysParamService" ref="sysParamService" version="${dubbo.service.version}" timeout="300000"  />
+<!--
+    <dubbo:service interface="com.huazhu.hvip.common.service.MenuService" ref="menuService" version="${dubbo.service.version}" timeout="300000"  />
+-->
+    <dubbo:service interface="com.huazhu.hvip.common.service.RegionsService" ref="regionsService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.common.service.FinanceSubjectService" ref="financeSubjectService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.common.service.NotifyRecordService" ref="notifyRecordService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.common.service.WxMenuService" ref="wxMenuService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.common.service.CouponService" ref="couponService" version="${dubbo.service.version}" timeout="300000"  />
+
+
+    <!-- 具体的实现bean -->
+    <bean id="serialNumService" class="com.huazhu.hvip.common.service.impl.SerialNumServiceImpl" />
+    <bean id="pictureService" class="com.huazhu.hvip.common.service.impl.PictureServiceImpl" />
+    <bean id="smsSendService" class="com.huazhu.hvip.common.service.impl.SmsSendServiceImpl" />
+    <bean id="sysParamService" class="com.huazhu.hvip.common.service.impl.SysParamServiceImpl" />
+  <!--  <bean id="menuService" class="com.huazhu.hvip.common.service.impl.MenuServiceImpl" />-->
+    <bean id="regionsService" class="com.huazhu.hvip.common.service.impl.RegionsServiceImpl" />
+    <bean id="financeSubjectService" class="com.huazhu.hvip.common.service.impl.FinanceSubjectServiceImpl" />
+    <bean id="notifyRecordService" class="com.huazhu.hvip.common.service.impl.NotifyRecordServiceImpl" />
+    <bean id="wxMenuService" class="com.huazhu.hvip.common.service.impl.WxMenuServiceImpl" ></bean>
+    <bean id="couponService" class="com.huazhu.hvip.common.service.impl.CouponServiceImpl" ></bean>
+
+</beans>

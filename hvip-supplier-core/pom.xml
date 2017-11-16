@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>hvip</artifactId>
+        <groupId>com.huazhu.hvip</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>hvip-supplier-core</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.huazhu.hvip</groupId>
+            <artifactId>hvip-util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.huazhu.hvip</groupId>
+            <artifactId>hvip-base</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+
+        <db.name>cjiaclean_supplier</db.name>
+        <project.release.version>1.0</project.release.version>
+
+        <jdbc.url>jdbc:mysql://${db.url}/${db.name}?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;autoReconnect=true</jdbc.url>
+        <jdbc.username>${db.username}</jdbc.username>
+        <jdbc.password>${db.password}</jdbc.password>
+
+    </properties>
+
+    <!--<profiles>-->
+
+        <!--&lt;!&ndash; dev &ndash;&gt;-->
+        <!--<profile>-->
+            <!--<id>dev</id>-->
+
+            <!--<properties>-->
+                <!--<env>dev</env>-->
+                <!--<db.name>hvip_supplier</db.name>-->
+                <!--<project.release.version>1.0</project.release.version>-->
+
+                <!--<jdbc.url>jdbc:mysql://10.1.81.184:3306/${db.name}?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;autoReconnect=true</jdbc.url>-->
+                <!--<jdbc.username>root</jdbc.username>-->
+                <!--<jdbc.password>123456</jdbc.password>-->
+
+            <!--</properties>-->
+        <!--</profile>-->
+
+        <!--&lt;!&ndash; test &ndash;&gt;-->
+        <!--<profile>-->
+            <!--<id>test</id>-->
+
+            <!--<properties>-->
+                <!--<env>test</env>-->
+                <!--<db.name>hvip_supplier</db.name>-->
+                <!--<project.release.version>1.0</project.release.version>-->
+
+                <!--<jdbc.url>jdbc:mysql://10.1.249.49:8090/${db.name}?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;autoReconnect=true</jdbc.url>-->
+                <!--<jdbc.username>root</jdbc.username>-->
+                <!--<jdbc.password>123456</jdbc.password>-->
+
+            <!--</properties>-->
+        <!--</profile>-->
+
+        <!--&lt;!&ndash; product &ndash;&gt;-->
+        <!--<profile>-->
+            <!--<id>production</id>-->
+            <!--<properties>-->
+                <!--<env>production</env>-->
+                <!--<db.name>hvip_supplier</db.name>-->
+                <!--<project.release.version>1.0</project.release.version>-->
+
+                <!--<jdbc.url>jdbc:mysql://10.1.223.70:3306/${db.name}?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;autoReconnect=true</jdbc.url>-->
+                <!--<jdbc.username>hvip</jdbc.username>-->
+                <!--<jdbc.password>huazhu_vip2016</jdbc.password>-->
+
+            <!--</properties>-->
+        <!--</profile>-->
+
+
+    <!--</profiles>-->
+
+</project>

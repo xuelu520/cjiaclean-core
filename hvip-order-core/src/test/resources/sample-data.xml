@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <table name="app_user">
+        <column>id</column>
+        <column>username</column>
+        <column>password</column>
+        <column>first_name</column>
+        <column>last_name</column>
+        <column>address</column>
+        <column>city</column>
+        <column>country</column>
+        <column>email</column>
+        <column>phone_number</column>
+        <column>postal_code</column>
+        <column>province</column>
+        <column>website</column>
+        <column>password_hint</column>
+        <column>version</column>
+        <column>account_enabled</column>
+        <column>account_expired</column>
+        <column>account_locked</column>
+        <column>credentials_expired</column>
+        <row>
+            <value description="id">-1</value>
+            <value description="username">user</value>
+            <value description="password">b6b1f4781776979c0775c71ebdd8bdc084aac5fe</value>
+            <value description="first_name">Tomcat</value>
+            <value description="last_name">User</value>
+            <value description="address"></value>
+            <value description="city">Denver</value>
+            <value description="country">US</value>
+            <value description="email">matt_raible@yahoo.com</value>
+            <value description="phone_number"></value>
+            <value description="postal_code">80210</value>
+            <value description="province">CO</value>
+            <value description="website">http://tomcat.apache.org</value>
+            <value description="password_hint"><![CDATA[A male kitty.]]></value>
+            <value description="version">1</value>
+            <value description="account_enabled">1</value>
+            <value description="account_expired">0</value>
+            <value description="account_locked">0</value>
+            <value description="credentials_expired">0</value>
+        </row>
+        <row>
+            <value description="id">-2</value>
+            <value description="username">admin</value>
+            <value description="password">a40546cc4fd6a12572828bb803380888ad1bfdab</value>
+            <value description="first_name">Matt</value>
+            <value description="last_name">Raible</value>
+            <value description="address"></value>
+            <value description="city">Denver</value>
+            <value description="country">US</value>
+            <value description="email">matt@raibledesigns.com</value>
+            <value description="phone_number"></value>
+            <value description="postal_code">80210</value>
+            <value description="province">CO</value>
+            <value description="website">http://raibledesigns.com</value>
+            <value description="password_hint"><![CDATA[Not a female kitty.]]></value>
+            <value description="version">1</value>
+            <value description="account_enabled">1</value>
+            <value description="account_expired">0</value>
+            <value description="account_locked">0</value>
+            <value description="credentials_expired">0</value>
+        </row>
+    </table>
+    <table name="role">
+        <column>id</column>
+        <column>name</column>
+        <column>description</column>
+        <row>
+            <value description="id">-1</value>
+            <value description="name">ROLE_ADMIN</value>
+            <value description="description"><![CDATA[Administrator role (can edit Users)]]></value>
+        </row>
+        <row>
+            <value description="id">-2</value>
+            <value description="name">ROLE_USER</value>
+            <value description="description"><![CDATA[Default role for all Users]]></value>
+        </row>
+    </table>
+    <table name="user_role">
+        <column>user_id</column>
+        <column>role_id</column>
+        <row>
+            <value description="user_id">-1</value>
+            <value description="role_id">-2</value>
+        </row>
+        <row>
+            <value description="user_id">-2</value>
+            <value description="role_id">-1</value>
+        </row>
+    </table>
+    <!--SerialNum-START-->
+    <table name="serialNum">
+        <column>serialId</column>
+        <column>nextNum</column>
+        <column>remark</column>
+        <column>serialLen</column>
+        <column>serialName</column>
+        <column>serialRule</column>
+        <column>startNum</column>
+    <row>
+        <value description="serialId">-1</value>
+        <value description="nextNum">78611886</value>
+        <value description="remark">YdIiQhHlVcSzSiGhHsLaTfJmOdXnCpTnVuNdAoUmMkUeRtEgJzGdWfXdNpZaXaMiNpFbAxRiGqAyAuAbKoFlEmFeMzRfNlYtDlYyBwHbOdBnQxYcXnJqZgEoQnIpBkAuZnGeGeEfXiLeMnKoYpPvKaTdSoBuKpUsYeCaJjOsRtYuPlYtRpRvZjMaRbLyJoVaQaReCkWePpBuYjWqOaNyOrAqJwRbRbUpCiBoSyQiTjOeVsOrKgWrIjHrSu</value>
+        <value description="serialLen">30578668</value>
+        <value description="serialName">TrNcDoOrKoGjRnSuAmSuRaQwIiGpOuKiKrOaRqGoNfDhPkTpZvTkGrXiXbEbUoQxFfEySsFcWtFjKgGbGqYeEhExIiZkEmWrVaUx</value>
+        <value description="serialRule">DhSxMfMuXmPaPqWzJqRtVgMvMsIoArUeUdGaHiAjDyJhUkVgTsAgSzAhEgMzSaBqBgGjRqZnFvWtGxZlPmVzHyXxSrXvHmEsTeJl</value>
+        <value description="startNum">1767873616</value>
+    </row>
+    <row>
+        <value description="serialId">-2</value>
+        <value description="nextNum">1132579138</value>
+        <value description="remark">YhTpHuWrZdCbGgYyPrNpInYuMcHrQdSaKqBrLfCdXbBoEkRiNnDbXnNyLkDmFzCgLdBzTdMcEnXwHuTdRhKpUpNiNhJnFrStUrGtGeAsYaCiPtQaEnDvXcIgBqQfTnBjGrVzGbIlUgPnFyFwFuAfAvSqKdJaKpZdWiClUgOgGcNsGuDeCzOfZlOxLaZiStYtAdLsRbUoGcLgDnRcRiPkHcWcJbVoBeCsGyAwPrToDdIgCxKnBxTeXhApLz</value>
+        <value description="serialLen">1804535381</value>
+        <value description="serialName">OvZbNqTcRoYrTlIjPtVoMiIhIjZhKhSuBtDqEfGnCoVgXoZoEhToRwUiHvAoNlMsSnSwCsKlWnPfVaIvInJkPqDbJyQgTyOmZmFj</value>
+        <value description="serialRule">UsDgJjZxCnXiOoXwGwKiElJtNeRvRbHtLuNuYpQbFwMvPiHoAwOnNeFtDjNkMtUtHcCuExXzTmHrOrRkXgJuJnYbEuNeTcRyHaLr</value>
+        <value description="startNum">1094667414</value>
+    </row>
+    <row>
+        <value description="serialId">-3</value>
+        <value description="nextNum">1948449580</value>
+        <value description="remark">YzEpLsIpIiShQbHwSoJmTdReShGiAmJqQwJrLnLtOcSmUxSiYnCjKeQaXnBiFbBsMyYvEbAaDsUpHjAzMaFgEgSuRbDlTmKbZbKsBlXtXoDqZxIyWsWlZuSkWcGzGzGaWaWpJuGsIkAkYuZbAzShDhAnFvMaYrNdFcStZtDwTaFzDuYrCvJgNiDlZbMwYuEzAcRwFuQtSqWsCwPrOtDbDqGpAyZkLiUoWhIbYfYwIfUgWlWrPhYeXlBdUd</value>
+        <value description="serialLen">1369433230</value>
+        <value description="serialName">AjQeIxAlVzAzNhDpBeMlRsBjLoItVwCvKeKiIeYyKxEyPtHoZzKiYnXkFaYqBqPdAxUkPaJxIsInDtAlEbPqUbRvFaDlGdMrKpBl</value>
+        <value description="serialRule">ZwYwJdHuIrTlDcUoDyRiIpQiMiWyFwFtUfKlKyKaVdPvHtGtWbTsDkJbHmKwZpWxFvWfXoMfDyJkJgJvTlPfXsMcVuTwKfQzOhYn</value>
+        <value description="startNum">991636763</value>
+    </row>
+    </table>
+    <!--SerialNum-END-->
+    
+    <!--SysParam-START-->
+    <table name="sysParam">
+        <column>paramId</column>
+        <column>delFlag</column>
+        <column>paramName</column>
+        <column>paramType</column>
+        <column>paramValue</column>
+    <row>
+        <value description="paramId">-1</value>
+        <value description="delFlag">0</value>
+        <value description="paramName">YhOpErDiXcQrFsEzZbCrJlMzZfCjHqOfZaYpJhXhTqYbAcOdVp</value>
+        <value description="paramType">LtJjQsMtBpMpNvOkYmKd</value>
+        <value description="paramValue">XeCjRnQjFdVnXqFkZlLvGrSaIkPpPiVoGaVoSdPcQoExTaOpQcLiApVkReNaLrJjKfAzZeHpVpDuCxSrFtNbZoPhBcXnOuYiZyAr</value>
+    </row>
+    <row>
+        <value description="paramId">-2</value>
+        <value description="delFlag">0</value>
+        <value description="paramName">IvJbBcRvJgZjZiFhWjSaZmTpHeVaDfVcCpGiUtDlUeUvGrGsLq</value>
+        <value description="paramType">VdTsSiVeFuNrVvLxYsAo</value>
+        <value description="paramValue">CyNjPgTtZhQuBuFmPaLcYdQoNzLvDdUjQfNnGvNgXxClQmXbKlNjLhDrVlAaImUdWjGiUyAfLrUgUbNqEiKzXxOtIvHgOdMtKsCn</value>
+    </row>
+    <row>
+        <value description="paramId">-3</value>
+        <value description="delFlag">0</value>
+        <value description="paramName">BqHbWwFqAbJnMtUfYfGhBdGqBaJuPhJgZdTzNcIzJzJxXkFrCi</value>
+        <value description="paramType">NeFiOsLnIxNbMpVyUfOn</value>
+        <value description="paramValue">FcFgFhWjTmBpCbLkPgUzOdMwIpYyYzMjRxEzOcUrFtQuXoEmVsLhMsTlVcIuDnGbGeClVkIcGfNrVwEhLrOqWvOqChDsGcMxMzVm</value>
+    </row>
+    </table>
+    <!--SysParam-END-->
+</dataset>
+
+

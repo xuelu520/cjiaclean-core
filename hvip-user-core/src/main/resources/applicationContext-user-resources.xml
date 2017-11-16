@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+
+    <!-- For mail settings and future properties files -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:hibernate-user.properties</value>
+                <value>classpath:jdbc-user.properties</value>
+                <value>classpath:mail-user.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- JNDI DataSource for J2EE environments -->
+    <!--<jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/appfuse"/>-->
+
+    <bean id="dataSource_user" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+
+        <property name="filters" value="stat" />
+        <property name="useGlobalDataSourceStat" value="true" />
+        <property name="maxActive" value="1000" />
+        <property name="initialSize" value="1" />
+        <property name="maxWait" value="1000" />
+        <property name="minIdle" value="1" />
+
+        <property name="timeBetweenEvictionRunsMillis" value="60000" />
+        <property name="minEvictableIdleTimeMillis" value="300000" />
+
+        <property name="testWhileIdle" value="true" />
+        <property name="testOnBorrow" value="false" />
+        <property name="testOnReturn" value="false" />
+
+        <property name="poolPreparedStatements" value="true" />
+        <property name="maxOpenPreparedStatements" value="20" />
+        <property name="proxyFilters">
+            <list>
+                <ref bean="stat-filter"/>
+                <ref bean="log-filter"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="stat-filter" class="com.alibaba.druid.filter.stat.StatFilter">
+        <!-- 慢sql时间设置,即执行时间大于200毫秒的都是慢sql -->
+        <property name="slowSqlMillis" value="300"/>
+        <property name="logSlowSql" value="true"/>
+    </bean>
+
+    <bean id="log-filter" class="com.alibaba.druid.filter.logging.Log4jFilter">
+        <property name="dataSourceLogEnabled" value="true" />
+        <property name="statementExecutableSqlLogEnable" value="true" />
+    </bean>
+
+     <bean id="projectProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		 	<property name="singleton" value="true" />
+			<property name="locations">
+				  <list>
+                    <value>classpath:hibernate-user.properties</value>
+                    <value>classpath:jdbc-user.properties</value>
+                    <value>classpath:mail-user.properties</value>
+                </list>
+		    </property>
+	</bean>
+
+
+
+</beans>

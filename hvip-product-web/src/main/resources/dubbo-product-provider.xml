@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C),2016-2016. 华住酒店管理有限公司
+  ~ FileName: dubbo-provider.xml
+  ~ Author:   lijing
+  ~ Date:     2016-03-11 20:04:40
+  ~ Description: //模块目的、功能描述
+  ~ History: //修改记录 修改人姓名 修改时间 版本号 描述
+  ~ <lijing>  <2016-03-11 20:04:40> <version>   <desc>
+  ~
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="provider-product"  id="provider-product"  />
+
+    <!-- 使用multicast广播注册中心暴露服务地址
+    <dubbo:registry address="multicast://224.5.6.7:1234" />-->
+
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry id="cjiareg" address="${zookeeper.host}" />
+
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol id="prot1" name="dubbo" queues="0" payload="167772160" threads="100" threadpool="fixed" buffer="8192" port="${dubbo.protocol.host.product}" />
+
+    <!-- 监控中心协议，如果为protocol="registry"，表示从注册中心发现监控中心地址，否则直连监控中心。 -->
+
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.huazhu.hvip.product.service.ProductService"  ref="productService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.product.service.CategoryService" ref="categoryService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.product.service.GoodsService" ref="goodsService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.product.service.GoodsTypeService" ref="goodsTypeService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.product.service.BrandService" ref="brandService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.product.service.GoodsStoreService" ref="goodsStoreService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.product.service.ChannelGoodsPriceService" ref="channelGoodsPriceService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.product.service.CateOrderRuleService" ref="cateOrderRuleService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.product.service.CateCancelRuleService" ref="cateCancelRuleService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.product.service.ChannelService" ref="channelService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.product.service.TagsService" ref="tagsService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.product.service.ChannelObjectService" ref="channelObjectService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.product.service.ChannelRateService" ref="channelRateService" version="${dubbo.service.version}" timeout="300000"  />
+    <dubbo:service interface="com.huazhu.hvip.product.service.FrequencyService" ref="frequencyService" version="${dubbo.service.version}" timeout="300000"  />
+
+    <!-- 具体的实现bean -->
+    <bean id="productService" class="com.huazhu.hvip.product.service.impl.ProductServiceImpl" />
+    <bean id="categoryService" class="com.huazhu.hvip.product.service.impl.CategoryServiceImpl" />
+    <bean id="goodsService" class="com.huazhu.hvip.product.service.impl.GoodsServiceImpl" />
+    <bean id="goodsTypeService" class="com.huazhu.hvip.product.service.impl.GoodsTypeServiceImpl" />
+    <bean id="brandService" class="com.huazhu.hvip.product.service.impl.BrandServiceImpl" />
+    <bean id="goodsStoreService" class="com.huazhu.hvip.product.service.impl.GoodsStoreServiceImpl" />
+    <bean id="channelGoodsPriceService" class="com.huazhu.hvip.product.service.impl.ChannelGoodsPriceServiceImpl" />
+    <bean id="cateOrderRuleService" class="com.huazhu.hvip.product.service.impl.CateOrderRuleServiceImpl" />
+    <bean id="cateCancelRuleService" class="com.huazhu.hvip.product.service.impl.CateCancelRuleServiceImpl" />
+    <bean id="channelService" class="com.huazhu.hvip.product.service.impl.ChannelServiceImpl" />
+    <bean id="tagsService" class="com.huazhu.hvip.product.service.impl.TagsServiceImpl" />
+    <bean id="channelObjectService" class="com.huazhu.hvip.product.service.impl.ChannelObjectServiceImpl" />
+    <bean id="channelRateService" class="com.huazhu.hvip.product.service.impl.ChannelRateServiceImpl" />
+    <bean id="frequencyService" class="com.huazhu.hvip.product.service.impl.FrequencyServiceImpl" />
+
+    <!-- 调用其他模块服务接口 -->
+    <dubbo:reference id="hotelGoodsService" check="false" version="${dubbo.service.version}" interface="com.huazhu.hvip.operation.service.HotelGoodsService"  />
+    <dubbo:reference id="hotelCateService" check="false" version="${dubbo.service.version}" interface="com.huazhu.hvip.operation.service.HotelCateService"  />
+    <dubbo:reference id="hotelService" check="false" version="${dubbo.service.version}" interface="com.huazhu.hvip.operation.service.HotelService"  />
+    <dubbo:reference id="storeService" check="false" version="${dubbo.service.version}" interface="com.huazhu.hvip.store.service.StoreService"  />
+    <dubbo:reference id="serialNumService" check="false" version="${dubbo.service.version}" interface="com.huazhu.hvip.common.service.SerialNumService"  />
+    <dubbo:reference id="pictureService" check="false" version="${dubbo.service.version}" interface="com.huazhu.hvip.common.service.PictureService"  />
+    <dubbo:reference id="sysParamService" check="false" version="${dubbo.service.version}" interface="com.huazhu.hvip.common.service.SysParamService"  />
+    <dubbo:reference id="financeSubjectService" check="false" version="${dubbo.service.version}" interface="com.huazhu.hvip.common.service.FinanceSubjectService"  />
+    <dubbo:reference id="inventoryService" check="false" version="${dubbo.service.version}" interface="com.huazhu.hvip.inventory.service.InventoryService"  />
+</beans>

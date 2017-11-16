@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C),2016-2016. 华住酒店管理有限公司
+  ~ FileName: dubbo-provider.xml
+  ~ Author:   lijing
+  ~ Date:     2016-03-11 20:04:40
+  ~ Description: //模块目的、功能描述
+  ~ History: //修改记录 修改人姓名 修改时间 版本号 描述
+  ~ <lijing>  <2016-03-11 20:04:40> <version>   <desc>
+  ~
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="provider-rest"  id="provider-rest"  />
+
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry id="cjiareg" address="${zookeeper.host}" />
+
+    <!-- 用rest协议在8080端口暴露服务 -->
+    <dubbo:protocol name="rest" server="tomcat" port="${dubbo.protocol.rest.host}"/>
+
+
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.huazhu.hvip.rest.service.CleanerRestService" ref="cleanerRestService" version="${dubbo.service.version}" timeout="300000"  />
+
+    <!-- 具体的实现bean -->
+    <bean id="cleanerRestService" class="com.huazhu.hvip.rest.service.impl.CleanerRestServiceImpl" />
+
+    <!-- 调用其他模块服务接口 -->
+    <dubbo:reference id="cleanerService" check="false" version="${dubbo.service.version}" interface="com.huazhu.hvip.user.service.CleanerService"  />
+
+</beans>

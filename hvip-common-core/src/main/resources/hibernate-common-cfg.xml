@@ -1,0 +1,42 @@
+<!--
+  ~ Copyright (C),2016-2016. 华住酒店管理有限公司
+  ~ FileName: hibernate-common-cfg.xml
+  ~ Author:   admin
+  ~ Date:     2016-03-20 16:07:45
+  ~ Description: //模块目的、功能描述
+  ~ History: //修改记录 修改人姓名 修改时间 版本号 描述
+  ~ <admin><2016-03-20 16:07:45><version><desc>
+  -->
+
+<!-- NOTE: If you're working offline, you might have to change the DOCTYPE to the following:
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">-->
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <mapping class="com.huazhu.hvip.common.model.Area"/>
+        <mapping class="com.huazhu.hvip.common.model.DictCode"/>
+        <mapping class="com.huazhu.hvip.common.model.Dictionary"/>
+        <mapping class="com.huazhu.hvip.common.model.Menu"/>
+        <mapping class="com.huazhu.hvip.common.model.MenuUrl"/>
+        <mapping class="com.huazhu.hvip.common.model.Picture"/>
+        <mapping class="com.huazhu.hvip.common.model.SerialNum"/>
+        <mapping class="com.huazhu.hvip.common.model.SmsSend"/>
+        <mapping class="com.huazhu.hvip.common.model.SmsTemplate"/>
+        <mapping class="com.huazhu.hvip.common.model.SysParam"/>
+        <mapping class="com.huazhu.hvip.common.model.Regiongaode"/>
+        <mapping class="com.huazhu.hvip.common.model.FinanceSubject"/>
+        <mapping class="com.huazhu.hvip.common.model.NotifyRecord"/>
+        <mapping class="com.huazhu.hvip.common.model.WxMenu"/>
+        <mapping class="com.huazhu.hvip.common.model.Coupon"/>
+        <mapping class="com.huazhu.hvip.common.model.Couponscode"/>
+        <mapping class="com.huazhu.hvip.common.model.Couponsrange"/>
+        <mapping class="com.huazhu.hvip.common.model.Couponsrecord"/>
+
+        <!-- No Table  -->
+    </session-factory>
+</hibernate-configuration>

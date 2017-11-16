@@ -1,0 +1,44 @@
+<!--
+  ~ Copyright (C),2016-2016. 华住酒店管理有限公司
+  ~ FileName: hibernate.cfg.xml
+  ~ Author:   admin
+  ~ Date:     2016-03-10 14:45:58
+  ~ Description: //模块目的、功能描述
+  ~ History: //修改记录 修改人姓名 修改时间 版本号 描述 需求来源
+  ~ <admin><2016-03-10 14:45:58><version><desc><source>
+  -->
+
+<!-- NOTE: If you're working offline, you might have to change the DOCTYPE to the following:
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">-->
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/cjiaclean_order</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <mapping class="com.huazhu.hvip.order.ord.model.Cart"/>
+        <mapping class="com.huazhu.hvip.order.ord.model.Order"/>
+        <mapping class="com.huazhu.hvip.order.ord.model.OrderDebit"/>
+        <mapping class="com.huazhu.hvip.order.ord.model.OrderItems"/>
+        <mapping class="com.huazhu.hvip.order.ord.model.extend.OrderItemsExt"/>
+        <mapping class="com.huazhu.hvip.order.ord.model.OrderAction"/>
+        <mapping class="com.huazhu.hvip.order.ord.model.OrderFeeDetail"/>
+        <mapping class="com.huazhu.hvip.order.payment.model.Payment"/>
+        <mapping class="com.huazhu.hvip.order.payment.model.RefundLogs"/>
+        <mapping class="com.huazhu.hvip.order.shipments.model.Shipments"/>
+        <mapping class="com.huazhu.hvip.order.shipments.model.ShipmentsItem"/>
+        <mapping class="com.huazhu.hvip.order.ord.model.extend.OrderExt"/>
+        <mapping class="com.huazhu.hvip.order.ord.model.extend.OrderActionExt"/>
+        <mapping class="com.huazhu.hvip.order.ord.model.extend.HotelOrderSale"/>
+        <mapping class="com.huazhu.hvip.order.ord.model.Paymentlog"/>
+        <mapping class="com.huazhu.hvip.order.ord.model.Service"/>
+        <mapping class="com.huazhu.hvip.order.ord.model.Serviceitem"/>
+        <mapping class="com.huazhu.hvip.order.ord.model.ServiceAction"/>
+        <mapping class="com.huazhu.hvip.order.ord.model.OpOrderListView"/>
+        <mapping class="com.huazhu.hvip.order.ord.model.OrderUpdateLog"/>
+
+        <!-- No Table  -->
+    </session-factory>
+</hibernate-configuration>

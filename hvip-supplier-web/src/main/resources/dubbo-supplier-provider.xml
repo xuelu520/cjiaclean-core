@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C),2016-2016. 华住酒店管理有限公司
+  ~ FileName: dubbo-store-provider.xml
+  ~ Author:   chenli
+  ~ Date:     2016-03-23 10:05:32
+  ~ Description: //模块目的、功能描述
+  ~ History: //修改记录 修改人姓名 修改时间 版本号 描述
+  ~ <chenli>  <2016-03-23 10:05:32> <version>   <desc>
+  ~
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="provider-supplier"  id="provider-supplier"  />
+
+    <!-- 使用multicast广播注册中心暴露服务地址
+    <dubbo:registry address="multicast://224.5.6.7:1234" />-->
+
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry id="cjiareg" address="${zookeeper.host}" />
+
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" queues="0" payload="167772160" threads="100" threadpool="fixed" buffer="8192" port="${dubbo.protocol.host.supplier}" />
+
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.huazhu.hvip.supplier.service.SupplierService" ref="supplierService" version="${dubbo.service.version}" timeout="300000"  />
+    <!--<dubbo:service interface="com.huazhu.hvip.supplier.service.SupplierUserService" ref="supplierUserService" timeout="300000"  />-->
+    <dubbo:service interface="com.huazhu.hvip.supplier.service.TechnicianService" ref="technicianService" version="${dubbo.service.version}" timeout="300000"  />
+
+    <!-- 具体的实现bean -->
+    <bean id="supplierService" class="com.huazhu.hvip.supplier.service.impl.SupplierServiceImpl" />
+    <!--<bean id="supplierUserService" class="com.huazhu.hvip.supplier.service.impl.SupplierUserServiceImpl" />-->
+    <bean id="technicianService" class="com.huazhu.hvip.supplier.service.impl.TechnicianServiceImpl" />
+
+</beans>

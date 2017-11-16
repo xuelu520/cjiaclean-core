@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C),2015-2015. 城家酒店管理有限公司
+  ~ FileName: applicationContext-test.xml
+  ~ Author:   ZhengYong
+  ~ Date:     2015-11-27 17:29:35
+  ~ Description: //模块目的、功能描述
+  ~ History: //修改记录 修改人姓名 修改时间 版本号 描述
+  ~ <ZhengYong>  <2015-11-27 17:29:35> <version>   <desc>
+  -->
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-lazy-init="true">
+
+    <import resource="spring-redis.xml"/>
+    <!--<import resource="spring-redis-sentinel.xml"/>-->
+
+
+    <context:component-scan base-package="com.huazhu.hmall">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
+    </context:component-scan>
+
+
+</beans>
