@@ -29,4 +29,6 @@
            <context:include-filter type="aspectj"  expression="com.huazhu.hvip.common.service.*.*"/>
 	</context:component-scan>
 
+
+
 </beans>

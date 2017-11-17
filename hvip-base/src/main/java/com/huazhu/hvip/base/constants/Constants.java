@@ -585,13 +585,6 @@ public final class Constants {
     public static final String MEMBER_ISADMIN_ADMIN="1";//管理员
     public static final String MEMBER_ISADMIN_CLEANER="2";//保洁员
 
-    //项目状态
-    public static final String PROGRAM_STATUS_SERVERING="0";//服务中
-    public static final String PROGRAM_STATUS_SUSPEND="1";//暂停中
-
-    public static final int PROGRAM_STARTORSTOP_START=0;//启动中
-    public static final int PROGRAM_STARTORSTOP_STOP=1;//停止
-
 
 }
 

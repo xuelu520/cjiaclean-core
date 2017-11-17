@@ -21,9 +21,5 @@
         <!-- No Table  -->
         <mapping class="com.huazhu.hvip.company.model.Company"/>
         <mapping class="com.huazhu.hvip.company.model.CompanyUser"/>
-        <mapping class="com.huazhu.hvip.company.model.Order"/>
-        <mapping class="com.huazhu.hvip.company.model.Probusinessperson"/>
-        <mapping class="com.huazhu.hvip.company.model.Program"/>
-        <mapping class="com.huazhu.hvip.company.model.Programremark"/>
     </session-factory>
 </hibernate-configuration>

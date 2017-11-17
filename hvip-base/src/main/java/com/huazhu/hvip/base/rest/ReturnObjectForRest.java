@@ -12,6 +12,8 @@
 package com.huazhu.hvip.base.rest;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -26,8 +28,6 @@ public class ReturnObjectForRest<T> implements Serializable{
 	private String message;  //返回消息
 
     private T data;   //返回对象
-
-	private String token;   //返回对象
 
 	public String getCode() {
 		return code;
@@ -51,14 +51,5 @@ public class ReturnObjectForRest<T> implements Serializable{
 
 	public void setData(T data) {
 		this.data = data;
-	}
-
-
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
 	}
 }

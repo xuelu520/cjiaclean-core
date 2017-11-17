@@ -32,13 +32,10 @@
 
     <dubbo:service interface="com.huazhu.hvip.company.service.CompanyService" ref="companyService" version="${dubbo.service.version}" timeout="300000"  />
     <dubbo:service interface="com.huazhu.hvip.company.service.CompanyUserService" ref="companyUscerService" version="${dubbo.service.version}" timeout="300000"  />
-    <dubbo:service interface="com.huazhu.hvip.company.service.ProgramService" ref="programService" version="${dubbo.service.version}" timeout="300000"  />
-    <dubbo:service interface="com.huazhu.hvip.company.service.OrderService" ref="orderService" version="${dubbo.service.version}" timeout="300000"  />
 
     <bean id="companyService" class="com.huazhu.hvip.company.impl.CompanyServiceImpl" />
     <bean id="companyUscerService" class="com.huazhu.hvip.company.impl.CompanyUserServiceImpl" />
-    <bean id="programService" class="com.huazhu.hvip.company.impl.ProgramServiceImpl" />
-    <bean id="orderService" class="com.huazhu.hvip.company.impl.OrderServiceImpl" />
+
     <!-- 监控中心协议，如果为protocol="registry"，表示从注册中心发现监控中心地址，否则直连监控中心。 -->
 
 </beans>

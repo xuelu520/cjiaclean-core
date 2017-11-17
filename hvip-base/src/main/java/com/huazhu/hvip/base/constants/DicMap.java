@@ -28,6 +28,12 @@ public class DicMap {
         dicMap.put(Constants.PAYMENT_TYPE_PREFIX + Constants.PAYMENT_TYPE_ONLINE, "在线支付");
         dicMap.put(Constants.PAYMENT_TYPE_PREFIX + Constants.PAYMENT_TYPE_STORE, "门店支付");
 
+        /**************************** 账单状态 ***********************************/
+        dicMap.put(Constants.BILL_TYPE_0, "未入账");
+        dicMap.put(Constants.BILL_TYPE_1, "已入账");
+        dicMap.put(Constants.BILL_TYPE_2, "已调账");
+        dicMap.put(Constants.BILL_TYPE_1F, "入账失败");
+        dicMap.put(Constants.BILL_TYPE_2F, "调账失败");
         /**************************** 酒店的审核状态 ***********************************/
         dicMap.put(Constants.HOTELCONTROLPRICE_OPEARTE_STATUS_PREFIX + Constants.HOTELCONTROLPRICE_OPERATE_STATUS_REJECT, "未审核");
         dicMap.put(Constants.HOTELCONTROLPRICE_OPEARTE_STATUS_PREFIX + Constants.HOTELCONTROLPRICE_OPERATE_STATUS_PASS, "通过");
